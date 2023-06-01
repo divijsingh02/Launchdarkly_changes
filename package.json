@@ -1,0 +1,276 @@
+{
+  "ava": {
+    "require": [
+      "dotenv-safe/config"
+    ]
+  },
+  "dependencies": {
+    "@cloudelements/beaker": "0.4.0",
+    "ajv": "6.12.6",
+    "amqplib": "0.8.0",
+    "aws-sdk": "2.503.0",
+    "aws-xray-sdk-core": "2.5.0",
+    "debug": "4.3.1",
+    "fluture": "8.0.2",
+    "fluture-sanctuary-types": "1.5.0",
+    "got": "11.8.3",
+    "graphlib": "2.1.7",
+    "hm-def": "0.3.2",
+    "launchdarkly-node-server-sdk": "^7.0.1",
+    "ramda": "0.25.0",
+    "ramda-adjunct": "2.18.0",
+    "request": "2.88.0",
+    "request-promise": "4.2.4",
+    "ringbufferjs": "1.1.0",
+    "sanctuary": "0.14.1",
+    "sanctuary-def": "0.14.0",
+    "sanctuary-type-classes": "8.1.1",
+    "uuid": "7.0.0",
+    "vm2": "3.9.10"
+  },
+  "description": "Cloud Elements Formula Engine",
+  "devDependencies": {
+    "ava": "2.2.0",
+    "aws-sdk-mock": "4.5.0",
+    "benchmark": "2.1.4",
+    "conventional-changelog-cli": "2.0.21",
+    "deep-equal": "1.1.0",
+    "dotenv-safe": "6.1.0",
+    "get-stdin": "7.0.0",
+    "js-yaml": "3.13.1",
+    "nock": "11.3.3",
+    "node": "14.17.1",
+    "npm-check": "5.9.0",
+    "npm-force-resolutions": "^0.0.10",
+    "nyc": "14.1.1",
+    "requestretry": "4.1.0",
+    "serverless": "1.83.3",
+    "serverless-cloudside-plugin": "1.0.3",
+    "serverless-localstack": "0.4.32",
+    "serverless-offline": "7.0.0",
+    "serverless-plugin-datadog": "2.26.0",
+    "serverless-stack-output": "0.2.3",
+    "sinon": "7.4.1",
+    "snyk": "1.193.2",
+    "xo": "0.24.0"
+  },
+  "engines": {
+    "node": ">=14.17.0",
+    "npm": ">=6.14.13"
+  },
+  "homepage": "https://github.com/cloud-elements/bodenstein",
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "name": "bodenstein",
+  "nyc": {
+    "branches": 100,
+    "functions": 100,
+    "lines": 100,
+    "statements": 100
+  },
+  "optionalDependencies": {
+    "lodash": "4.17.21",
+    "moment": "2.29.1",
+    "moment-timezone": "0.5.34"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cloud-elements/bodenstein.git"
+  },
+  "resolutions": {
+    "underscore": ">=1.13.1"
+  },
+  "scripts": {
+    "amadeus": "script/amadeus",
+    "bench": "script/bench",
+    "bencher": "script/bencher",
+    "changelog": "script/changelog",
+    "clean": "script/clean",
+    "cover": "script/cover",
+    "depend": "script/depend",
+    "deploy": "script/deploy",
+    "deploy-dedicated": "script/deploy-dedicated",
+    "example": "script/example",
+    "execute": "script/execute",
+    "json": "script/json",
+    "functional-large": "script/functional-large",
+    "functional-medium": "script/functional-medium",
+    "functional-service": "script/functional-service",
+    "functional-small": "script/functional-small",
+    "leak": "script/leak",
+    "leaker": "script/leaker",
+    "lint": "script/lint",
+    "playbook-deploy-auto": "script/playbook-deploy-auto",
+    "playbook-deploy-manual": "script/playbook-deploy-manual",
+    "playbook-deploy-manual-dedicated": "script/playbook-deploy-manual-dedicated",
+    "playbook-remove-manual-dedicated": "script/playbook-remove-manual-dedicated",
+    "posttag": "script/posttag",
+    "release.artifact": "serverless package --package=./dist",
+    "release.publish": "aws s3 cp ./dist/bodenstein.zip s3://serverless.cloudelements/bodenstein/bodenstein-${npm_package_version}.zip",
+    "remove-dedicated": "script/remove-dedicated",
+    "sync-dedicated": "script/sync-dedicated",
+    "slack": "script/slack",
+    "tag": "script/tag",
+    "test": "script/test",
+    "vuln": "script/vuln",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "version": "1.25.4",
+  "xo": {
+    "esnext": true,
+    "rules": {
+      "ava/no-ignored-test-files": [
+        "error",
+        {
+          "files": [
+            "test/large/**/*.js",
+            "test/medium/**/*.js",
+            "test/service/**/*.js",
+            "test/small/**/*.js"
+          ]
+        }
+      ],
+      "ava/no-skip-test": [
+        "off"
+      ],
+      "array-bracket-newline": [
+        "off"
+      ],
+      "array-element-newline": [
+        "off"
+      ],
+      "arrow-body-style": [
+        "error",
+        "as-needed"
+      ],
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "arrow-spacing": [
+        "error",
+        {
+          "before": true,
+          "after": true
+        }
+      ],
+      "brace-style": [
+        "off"
+      ],
+      "capitalized-comments": [
+        "off"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "computed-property-spacing": [
+        "error",
+        "never"
+      ],
+      "func-call-spacing": [
+        "off"
+      ],
+      "func-style": [
+        "error",
+        "declaration",
+        {
+          "allowArrowFunctions": true
+        }
+      ],
+      "generator-star-spacing": [
+        "error",
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "indent": [
+        "off"
+      ],
+      "new-cap": [
+        "off"
+      ],
+      "no-const-assign": [
+        "error"
+      ],
+      "no-else-return": [
+        "off"
+      ],
+      "no-invalid-regexp": [
+        "error",
+        {
+          "allowConstructorFlags": [
+            "g",
+            "i",
+            "m",
+            "u",
+            "y"
+          ]
+        }
+      ],
+      "no-new-func": [
+        "off"
+      ],
+      "no-template-curly-in-string": [
+        "off"
+      ],
+      "no-unexpected-multiline": [
+        "off"
+      ],
+      "no-useless-computed-key": [
+        "error"
+      ],
+      "no-useless-rename": [
+        "error"
+      ],
+      "no-var": [
+        "error"
+      ],
+      "promise/prefer-await-to-then": false,
+      "prefer-arrow-callback": [
+        "error",
+        {
+          "allowNamedFunctions": false
+        }
+      ],
+      "prefer-const": [
+        "error",
+        {
+          "destructuring": "any"
+        }
+      ],
+      "prefer-numeric-literals": [
+        "error"
+      ],
+      "prefer-rest-params": [
+        "error"
+      ],
+      "prefer-spread": [
+        "error"
+      ],
+      "prefer-template": [
+        "off"
+      ],
+      "template-curly-spacing": [
+        "error",
+        "never"
+      ],
+      "template-tag-spacing": [
+        "error",
+        "never"
+      ],
+      "unicorn/filename-case": [
+        "off"
+      ],
+      "yield-star-spacing": [
+        "error",
+        {
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "peerDependencies": {}
+}
